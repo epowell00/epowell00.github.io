@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evan Powell – Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2332;
+            --slate: #2c3e50;
+            --steel: #4a5568;
+            --muted: #718096;
+            --light: #e2e8f0;
+            --bg: #fafbfc;
+            --white: #ffffff;
+            --accent: #2b6cb0;
+            --accent-light: #ebf4ff;
+            --rule: #cbd5e0;
+            --max-width: 820px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--slate);
+            background: var(--bg);
+            line-height: 1.6;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem 3.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+            border-radius: 2px;
+        }
+
+        /* Header */
+        .header {
+            border-bottom: 2px solid var(--navy);
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        h1 {
+            font-family: 'Source Serif 4', serif;
+            font-weight: 700;
+            font-size: 2rem;
+            color: var(--navy);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.5rem;
+            font-size: 0.875rem;
+            color: var(--steel);
+        }
+
+        .contact-row a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-row a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 1.75rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            font-family: 'Source Serif 4', serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 0.35rem;
+            margin-bottom: 0.85rem;
+        }
+
+        /* Overview */
+        .overview p {
+            font-size: 0.9rem;
+            color: var(--steel);
+            line-height: 1.7;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: 0.35rem 1.25rem;
+            font-size: 0.875rem;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .skill-value {
+            color: var(--steel);
+        }
+
+        /* Experience */
+        .company-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .company-header {
+            margin-bottom: 0.25rem;
+        }
+
+        .company-name {
+            font-family: 'Source Serif 4', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--navy);
+        }
+
+        .company-meta {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .role {
+            margin-bottom: 1rem;
+            padding-left: 0.75rem;
+            border-left: 2px solid var(--accent-light);
+        }
+
+        .role:last-child { margin-bottom: 0; }
+
+        .role-title {
+            font-weight: 600;
+            color: var(--slate);
+            font-size: 0.925rem;
+        }
+
+        .role-dates {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .role-description {
+            font-size: 0.875rem;
+            color: var(--steel);
+            margin-bottom: 0.35rem;
+            line-height: 1.65;
+        }
+
+        .accomplishments {
+            margin-top: 0.4rem;
+        }
+
+        .accomplishments-label {
+            font-weight: 600;
+            font-size: 0.825rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.25rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 0.875rem;
+            color: var(--steel);
+            padding-left: 1rem;
+            position: relative;
+            margin-bottom: 0.3rem;
+            line-height: 1.6;
+        }
+
+        ul li::before {
+            content: '–';
+            position: absolute;
+            left: 0;
+            color: var(--muted);
+        }
+
+        .tech-stack {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.35rem;
+            font-style: italic;
+        }
+
+        /* Education & Certs */
+        .edu-item, .cert-item {
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .edu-item strong, .cert-item strong {
+            color: var(--navy);
+        }
+
+        .edu-meta {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* Download bar */
+        .download-bar {
+            max-width: var(--max-width);
+            margin: 1rem auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .download-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .download-bar a:hover { text-decoration: underline; }
+
+        /* Print */
+        @media print {
+            body { padding: 0; background: white; }
+            .container { box-shadow: none; padding: 1.5rem; }
+            .download-bar { display: none; }
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 0.75rem; }
+            .container { padding: 1.75rem 1.5rem; }
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .skill-label { margin-top: 0.25rem; }
+            .contact-row { flex-direction: column; gap: 0.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <h1>Evan Powell</h1>
+        <div class="contact-row">
+            <span>Souderton, PA 18964</span>
+            <span>evan.g.powell@gmail.com</span>
+            <span>(610) 316-2871</span>
+            <a href="https://www.linkedin.com/in/evan-powell-qaengineer" target="_blank">LinkedIn</a>
+        </div>
+    </header>
+
+    <section class="section overview">
+        <h2>Overview</h2>
+        <p>Quality Assurance Engineer and Certified Scrum Master with 12 years of experience in the Quick Service Restaurant (QSR) industry, including 8 years in QA and 4 years in technical support. Specialized in testing cloud-based B2B SaaS payment processing and POS systems serving 10,000+ restaurant locations globally. Started at an established family-owned business, retained through a private-equity acquisition, and subsequently acquired by publicly traded Global Payments, demonstrating adaptability across diverse organizational structures and business models. Strong background in test strategy, SQL data validation, API testing with Postman, and maintaining automated test suites. Used Kibana logs to identify kiosk API failures, then implemented targeted test cases to improve order completion reliability from 78% to 99.9% over 4 months. Reduced post-release hotfixes by 75% by advocating for monthly release cycles instead of bi-weekly, allowing adequate time for thorough testing.</p>
+    </section>
+
+    <section class="section">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <span class="skill-label">Testing Expertise</span>
+            <span class="skill-value">Manual Testing, API Testing, Exploratory Testing, Regression Testing, Integration Testing</span>
+
+            <span class="skill-label">Tools &amp; Platforms</span>
+            <span class="skill-value">Postman, JIRA, Zephyr, Confluence, Git, Linux, MySQL, MariaDB, Kibana</span>
+
+            <span class="skill-label">Programming</span>
+            <span class="skill-value">SQL, Bash, Python (learning), Playwright (learning), PHP (reading), C/C# (reading)</span>
+
+            <span class="skill-label">Domain Knowledge</span>
+            <span class="skill-value">Payment Processing Systems, POS Systems, Cloud-Based Applications, Data Migration &amp; Validation</span>
+
+            <span class="skill-label">Methodologies</span>
+            <span class="skill-value">Agile/Scrum, Test Planning, Requirements Analysis, Defect Management</span>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Certifications &amp; Education</h2>
+        <div class="cert-item"><strong>Certified Scrum Master (CSM)</strong> – Scrum Alliance</div>
+        <div class="edu-item" style="margin-top: 0.5rem;">
+            <strong>Associate of Science in Network Systems Administration</strong>
+            <div class="edu-meta">ITT Technical Institute | King of Prussia, PA | 2010–2012</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Professional Experience</h2>
+
+        <div class="company-block">
+            <div class="company-header">
+                <div class="company-name">Sicom Systems → Sicom Systems (LLR Partners PE) → Xenial, A Global Payments Company</div>
+            </div>
+            <div class="company-meta">July 2012 – September 2024 · Payment processing and restaurant technology · Cloud-based POS and payment solutions to 51K+ restaurant installations across 62 countries</div>
+
+            <!-- Lead QA Engineer -->
+            <div class="role">
+                <div class="role-title">Lead Quality Assurance Engineer</div>
+                <div class="role-dates">September 2023 – September 2024</div>
+                <p class="role-description">Drove testing strategy and release coordination for monthly releases. Maintained automated test suite of 1,000+ test cases in a proprietary PHP framework across staging and production environments. Coordinated cross-functionally with the Portal team on database schema updates and downstream system impacts.</p>
+                <div class="accomplishments">
+                    <div class="accomplishments-label">Key Accomplishments</div>
+                    <ul>
+                        <li>Advocated for ASAN (Address Sanitizer) in release builds, enabling early detection and elimination of 99% of memory-related production issues within 3 months.</li>
+                        <li>Reduced post-release hotfixes by 75% by advocating for monthly release cycles instead of bi-weekly.</li>
+                        <li>Maintained visibility into development progress and coordinated testing schedules with PM for reliable release delivery.</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">C/C#, PHP, MySQL/MariaDB, JIRA, Zephyr, Git, Postman, Linux, Confluence, Kibana</div>
+            </div>
+
+            <!-- QA Engineer III -->
+            <div class="role">
+                <div class="role-title">Quality Assurance Engineer III</div>
+                <div class="role-dates">May 2021 – September 2023</div>
+                <p class="role-description">Served as Scrum Master, facilitating sprint planning, standups, retrospectives, and release planning. Collaborated with the Director of Engineering to define the product roadmap, prioritize backlog, and select features. Led comprehensive testing for PayPal payment integration across web and mobile platforms.</p>
+                <div class="accomplishments">
+                    <div class="accomplishments-label">Key Accomplishments</div>
+                    <ul>
+                        <li>Reduced customer support call volume by 40% over one year through systematic root cause analysis of bugs masked by quick-fix restarts.</li>
+                        <li>Used Kibana logs to identify kiosk API failures, implementing targeted test cases to improve order completion reliability from 78% to 99.9% over 4 months.</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">C/C#, PHP, MySQL/MariaDB, JIRA, Zephyr, Git, Postman, Linux, Confluence, Kibana</div>
+            </div>
+
+            <!-- QA Engineer II -->
+            <div class="role">
+                <div class="role-title">Quality Assurance Engineer II</div>
+                <div class="role-dates">March 2019 – May 2021</div>
+                <p class="role-description">Led integration testing for third-party payment systems and delivery platforms. Tested Verifone and Ingenico payment devices, kiosk systems via XML injection, and established delivery partner integrations (DoorDash, GrubHub, UberEats) using Postman for JSON-to-XML transformations. Validated database migrations from MySQL to MariaDB.</p>
+                <div class="accomplishments">
+                    <div class="accomplishments-label">Key Accomplishments</div>
+                    <ul>
+                        <li>Identified and resolved a critical defect in delivery order processing causing orders to loop between terminals — diagnosed within one week after a month-long escalation, resolving estimated tens of thousands in lost revenue per affected location.</li>
+                        <li>Discovered a developer's loyalty system implementation created 1:many relationships instead of 1:1, advocating for retention of this enhancement which enabled multiple concurrent loyalty providers.</li>
+                        <li>Accelerated loyalty program development from 8 months to 2 months by identifying an existing feature that could be leveraged for implementation.</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">C/C#, PHP, MySQL/MariaDB, JIRA, Zephyr, Git, Postman, Linux, Confluence, Kibana</div>
+            </div>
+
+            <!-- QA Engineer I -->
+            <div class="role">
+                <div class="role-title">Quality Assurance Engineer I</div>
+                <div class="role-dates">September 2016 – March 2019</div>
+                <p class="role-description">Built comprehensive test coverage for core POS and payment systems. Designed test cases for C to C# code conversion, conducted load testing via bash scripts simulating thousands of concurrent orders, and validated international fiscal compliance for France, Italy, and Quebec markets.</p>
+                <div class="accomplishments">
+                    <div class="accomplishments-label">Key Accomplishments</div>
+                    <ul>
+                        <li>Achieved fiscal compliance approval for international markets: Italy (2 months), France (6 months), Quebec (2 weeks), enabling international expansion.</li>
+                        <li>Verified C to C# code conversion covering 40% of the codebase, ensuring functional parity across legacy and modernized systems.</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">C/C#, PHP, MySQL, XML, JSON, JIRA, Git, Postman, Linux, Confluence</div>
+            </div>
+
+            <!-- Tech Support L3 -->
+            <div class="role">
+                <div class="role-title">Technical Support Level 3</div>
+                <div class="role-dates">September 2014 – September 2016</div>
+                <p class="role-description">Handled complex technical troubleshooting and system recovery for POS and payment systems across international locations. Performed SQL troubleshooting, data migrations from Micros POS to Sicom systems, and diagnosed system failures including file corruption and device connectivity issues.</p>
+                <div class="accomplishments">
+                    <div class="accomplishments-label">Key Accomplishments</div>
+                    <ul>
+                        <li>Established systematic issue classification (defect vs. user error vs. configuration), improving escalation accuracy and reducing unnecessary tickets.</li>
+                        <li>Trained Level 1 and Level 2 staff on advanced SQL troubleshooting and root cause analysis, reducing escalations.</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">C, SQL/MySQL, Linux, Bash</div>
+            </div>
+
+            <!-- Tech Support L2 -->
+            <div class="role">
+                <div class="role-title">Technical Support Level 2</div>
+                <div class="role-dates">March 2013 – September 2014</div>
+                <p class="role-description">Expanded responsibilities to custom reporting, database migrations, and international project coordination. Deployed to Hungary for 3 months to train overnight support staff and assist with European restaurant implementations. Led Product Mix project converting individual restaurant databases to a centralized cloud-based system.</p>
+                <div class="accomplishments">
+                    <div class="accomplishments-label">Key Accomplishments</div>
+                    <ul>
+                        <li>Proposed solution to prevent free item abuse by setting prices to $99.99 as a deterrent — adopted as core product logic and remained in place for 10+ years.</li>
+                        <li>Training efforts in Hungary enabled smooth database conversions across European locations, completing migration within 1 year.</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">C, MySQL, Linux, Bash</div>
+            </div>
+
+            <!-- Tech Support L1 -->
+            <div class="role">
+                <div class="role-title">Technical Support Level 1</div>
+                <div class="role-dates">July 2012 – March 2013</div>
+                <p class="role-description">Provided first-line technical assistance for restaurant POS systems. Resolved on-call issues including inventory shortages, payroll discrepancies, pay rate corrections, and daily close failures.</p>
+                <div class="tech-stack">MySQL, Linux</div>
+            </div>
+
+        </div><!-- /company-block -->
+
+    </section>
+
+</div>
+
+<div class="download-bar">
+    <a href="/">&larr; Back to Home</a>
+    <a href="/Evan_Powell_Resume.pdf" download>Download PDF</a>
+</div>
+
+</body>
+</html>
