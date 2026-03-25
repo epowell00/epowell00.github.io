@@ -42,7 +42,28 @@
             border-radius: 2px;
         }
 
-        /* Header */
+        .download-bar {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--muted);
+            padding: 0.75rem 0;
+        }
+
+        .download-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .download-bar a:hover { text-decoration: underline; }
+
+        .download-bar-top { margin-bottom: 0.5rem; }
+        .download-bar-bottom { margin-top: 1rem; }
+
         .header {
             border-bottom: 2px solid var(--navy);
             padding-bottom: 1.25rem;
@@ -75,7 +96,6 @@
             text-decoration: underline;
         }
 
-        /* Sections */
         .section {
             margin-bottom: 1.75rem;
         }
@@ -96,14 +116,12 @@
             margin-bottom: 0.85rem;
         }
 
-        /* Overview */
         .overview p {
             font-size: 0.9rem;
             color: var(--steel);
             line-height: 1.7;
         }
 
-        /* Skills */
         .skills-grid {
             display: grid;
             grid-template-columns: 170px 1fr;
@@ -120,9 +138,12 @@
             color: var(--steel);
         }
 
-        /* Experience */
         .company-block {
             margin-bottom: 1.5rem;
+        }
+
+        .company-block:last-child {
+            margin-bottom: 0;
         }
 
         .company-header {
@@ -211,7 +232,6 @@
             font-style: italic;
         }
 
-        /* Education & Certs */
         .edu-item, .cert-item {
             font-size: 0.9rem;
             margin-bottom: 0.35rem;
@@ -226,26 +246,6 @@
             color: var(--muted);
         }
 
-        /* Download bar */
-        .download-bar {
-            max-width: var(--max-width);
-            margin: 1rem auto 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
-
-        .download-bar a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .download-bar a:hover { text-decoration: underline; }
-
-        /* Print */
         @media print {
             body { padding: 0; background: white; }
             .container { box-shadow: none; padding: 1.5rem; }
@@ -266,13 +266,17 @@
 </head>
 <body>
 
+<div class="download-bar download-bar-top">
+    <a href="/Evan_Powell_Resume.pdf" download>Download PDF</a>
+</div>
+
 <div class="container">
 
     <header class="header">
         <h1>Evan Powell</h1>
         <div class="contact-row">
             <span>Souderton, PA 18964</span>
-            <span>evan.g.powell@gmail.com</span>
+            <a href="mailto:evan.g.powell@gmail.com">evan.g.powell@gmail.com</a>
             <span>(610) 316-2871</span>
             <a href="https://www.linkedin.com/in/evan-powell-qaengineer" target="_blank">LinkedIn</a>
         </div>
@@ -280,7 +284,7 @@
 
     <section class="section overview">
         <h2>Overview</h2>
-        <p>Quality Assurance Engineer and Certified Scrum Master with 12 years of experience in the Quick Service Restaurant (QSR) industry, including 8 years in QA and 4 years in technical support. Specialized in testing cloud-based B2B SaaS payment processing and POS systems serving 10,000+ restaurant locations globally. Started at an established family-owned business, retained through a private-equity acquisition, and subsequently acquired by publicly traded Global Payments, demonstrating adaptability across diverse organizational structures and business models. Strong background in test strategy, SQL data validation, API testing with Postman, and maintaining automated test suites. Used Kibana logs to identify kiosk API failures, then implemented targeted test cases to improve order completion reliability from 78% to 99.9% over 4 months. Reduced post-release hotfixes by 75% by advocating for monthly release cycles instead of bi-weekly, allowing adequate time for thorough testing.</p>
+        <p>Quality Assurance Engineer and Certified Scrum Master with 12 years of experience in the Quick Service Restaurant (QSR) industry, including 8 years in QA and 4 years in technical support. I specialized in testing cloud-based B2B SaaS payment processing and POS systems serving 10,000+ restaurant locations globally. Started at an established family-owned business, retained through a private-equity acquisition, and subsequently acquired by publicly traded Global Payments, demonstrating adaptability across diverse organizational structures and business models. Strong background in test strategy, SQL data validation, API testing with Postman, and maintaining automated test suites. Used Kibana logs to identify kiosk API failures, then implemented targeted test cases to improve order completion reliability from 78% to 99.9% over 4 months. Reduced post-release hotfixes by 75% by advocating for monthly release cycles instead of bi-weekly, allowing adequate time for thorough testing.</p>
     </section>
 
     <section class="section">
@@ -304,9 +308,13 @@
     </section>
 
     <section class="section">
-        <h2>Certifications &amp; Education</h2>
+        <h2>Certification</h2>
         <div class="cert-item"><strong>Certified Scrum Master (CSM)</strong> – Scrum Alliance</div>
-        <div class="edu-item" style="margin-top: 0.5rem;">
+    </section>
+
+    <section class="section">
+        <h2>Education</h2>
+        <div class="edu-item">
             <strong>Associate of Science in Network Systems Administration</strong>
             <div class="edu-meta">ITT Technical Institute | King of Prussia, PA | 2010–2012</div>
         </div>
@@ -315,120 +323,134 @@
     <section class="section">
         <h2>Professional Experience</h2>
 
+        <!-- American Pest Management -->
         <div class="company-block">
             <div class="company-header">
-                <div class="company-name">Sicom Systems → Sicom Systems (LLR Partners PE) → Xenial, A Global Payments Company</div>
+                <div class="company-name">American Pest Management, Inc.</div>
+            </div>
+
+            <div class="role">
+                <div class="role-title">Implementation &amp; UAT (Consultant)</div>
+                <div class="role-dates">March 2026 – Current</div>
+                <p class="role-description">Provided implementation and UAT consulting for business system migration from paper-based records and QuickBooks to PestPac platform. Validated data integrity during customer migration, configuring complex account hierarchies including multi-property owners with individual property records, payment methods, and invoicing options. Tested and configured scheduling and routing workflows for next-day service delivery, ensuring proper driver assignment and route optimization. Configured product invoicing and technician inventory management within PestPac, tracking product usage and stock levels across service operations.</p>
+                <div class="accomplishments">
+                    <div class="accomplishments-label">Key Accomplishments</div>
+                    <ul>
+                        <li>Migrated 312 customer records from paper-based system to PestPac, establishing standardized account structures that support multi-property management and automated scheduling.</li>
+                        <li>Configured scheduling and routing workflows for next-day service delivery, reducing manual route planning for drivers.</li>
+                        <li>Completed manual transfer of data from paper records into PestPac property trees, ensuring accurate account hierarchies across multi-property owners.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sicom / Xenial -->
+        <div class="company-block">
+            <div class="company-header">
+                <div class="company-name">Sicom Systems (Family Owned) → Xenial, A Global Payments Company</div>
             </div>
             <div class="company-meta">July 2012 – September 2024 · Payment processing and restaurant technology · Cloud-based POS and payment solutions to 51K+ restaurant installations across 62 countries</div>
 
-            <!-- Lead QA Engineer -->
             <div class="role">
                 <div class="role-title">Lead Quality Assurance Engineer</div>
                 <div class="role-dates">September 2023 – September 2024</div>
-                <p class="role-description">Drove testing strategy and release coordination for monthly releases. Maintained automated test suite of 1,000+ test cases in a proprietary PHP framework across staging and production environments. Coordinated cross-functionally with the Portal team on database schema updates and downstream system impacts.</p>
+                <p class="role-description">Drove testing strategy and release coordination for monthly releases. Maintained automated test suite of 1,000+ test cases in a proprietary PHP framework across staging and production environments. Coordinated cross-functionally with the Portal team on database schema updates and downstream system impacts. Executed regression testing suites to ensure new releases did not introduce defects into existing functionality. Contributed to release planning and Git branching strategies for monthly deployment cycles.</p>
                 <div class="accomplishments">
                     <div class="accomplishments-label">Key Accomplishments</div>
                     <ul>
-                        <li>Advocated for ASAN (Address Sanitizer) in release builds, enabling early detection and elimination of 99% of memory-related production issues within 3 months.</li>
-                        <li>Reduced post-release hotfixes by 75% by advocating for monthly release cycles instead of bi-weekly.</li>
-                        <li>Maintained visibility into development progress and coordinated testing schedules with PM for reliable release delivery.</li>
+                        <li>Advocated for implementing ASAN (Address Sanitizer) in release builds rather than running it every 6 months, enabling early detection and elimination of 99% of memory-related production issues within 3 months.</li>
+                        <li>Reduced post-release hotfixes by 75% by advocating for monthly release cycles instead of bi-weekly, allowing adequate time for thorough testing.</li>
+                        <li>Contributed to reliable release delivery by maintaining visibility into development progress and coordinating testing schedules with PM.</li>
                     </ul>
                 </div>
                 <div class="tech-stack">C/C#, PHP, MySQL/MariaDB, JIRA, Zephyr, Git, Postman, Linux, Confluence, Kibana</div>
             </div>
 
-            <!-- QA Engineer III -->
             <div class="role">
                 <div class="role-title">Quality Assurance Engineer III</div>
                 <div class="role-dates">May 2021 – September 2023</div>
-                <p class="role-description">Served as Scrum Master, facilitating sprint planning, standups, retrospectives, and release planning. Collaborated with the Director of Engineering to define the product roadmap, prioritize backlog, and select features. Led comprehensive testing for PayPal payment integration across web and mobile platforms.</p>
+                <p class="role-description">Served as Scrum Master, facilitating sprint planning, daily standups, retrospectives, and release planning. Collaborated with the Director of Engineering to define the product roadmap, prioritize backlog, and select features for development. Acted as liaison between QA team and leadership. Led comprehensive testing for PayPal payment integration, including transaction flows, refunds, and reconciliation across web and mobile platforms. Analyzed customer support call volume trends and identified root causes of the top 5 recurring issues, working with the development team to implement permanent solutions. Defined acceptance criteria for user stories, documented product roadmap and release plans in Confluence, and facilitated backlog grooming sessions.</p>
                 <div class="accomplishments">
                     <div class="accomplishments-label">Key Accomplishments</div>
                     <ul>
-                        <li>Reduced customer support call volume by 40% over one year through systematic root cause analysis of bugs masked by quick-fix restarts.</li>
-                        <li>Used Kibana logs to identify kiosk API failures, implementing targeted test cases to improve order completion reliability from 78% to 99.9% over 4 months.</li>
+                        <li>Reduced customer support call volume by 40% over the course of a year through systematic root cause analysis, identifying bugs masked by quick-fix restarts and working with the development team to implement permanent solutions.</li>
+                        <li>Used Kibana logs to identify kiosk API failures, then implemented targeted test cases to improve order completion reliability from 78% to 99.9% over 4 months.</li>
                     </ul>
                 </div>
                 <div class="tech-stack">C/C#, PHP, MySQL/MariaDB, JIRA, Zephyr, Git, Postman, Linux, Confluence, Kibana</div>
             </div>
 
-            <!-- QA Engineer II -->
             <div class="role">
                 <div class="role-title">Quality Assurance Engineer II</div>
                 <div class="role-dates">March 2019 – May 2021</div>
-                <p class="role-description">Led integration testing for third-party payment systems and delivery platforms. Tested Verifone and Ingenico payment devices, kiosk systems via XML injection, and established delivery partner integrations (DoorDash, GrubHub, UberEats) using Postman for JSON-to-XML transformations. Validated database migrations from MySQL to MariaDB.</p>
+                <p class="role-description">Led integration testing for third-party payment systems and delivery platforms. Retained through Global Payments acquisition, October 2018. Tested Verifone and Ingenico payment devices, validating transaction processing, refunds, and device communication protocols. Tested kiosk systems using XML injection via telnet to validate order flow. Established delivery partner integrations (DoorDash, GrubHub, UberEats) using Postman to test JSON-to-XML transformations through the Omni integration layer. Executed comprehensive testing for loyalty program implementations. Tested database migrations from MySQL to MariaDB during OS2 to OS4 system upgrades.</p>
                 <div class="accomplishments">
                     <div class="accomplishments-label">Key Accomplishments</div>
                     <ul>
-                        <li>Identified and resolved a critical defect in delivery order processing causing orders to loop between terminals — diagnosed within one week after a month-long escalation, resolving estimated tens of thousands in lost revenue per affected location.</li>
-                        <li>Discovered a developer's loyalty system implementation created 1:many relationships instead of 1:1, advocating for retention of this enhancement which enabled multiple concurrent loyalty providers.</li>
-                        <li>Accelerated loyalty program development from 8 months to 2 months by identifying an existing feature that could be leveraged for implementation.</li>
+                        <li>Identified and resolved a critical defect in delivery order processing where orders were getting stuck in an intermediate state, causing orders to loop between terminals. Diagnosed root cause through exploratory testing within one week after a month-long escalation, and implemented the fix within 3 days. The issue resulted in estimated tens of thousands of dollars in lost revenue per affected restaurant location.</li>
+                        <li>Discovered that the developer's loyalty system implementation created 1:many relationships instead of the specified 1:1, advocating for retention of this enhancement, which enabled multiple concurrent loyalty providers and significantly expanded product capabilities.</li>
+                        <li>Accelerated loyalty program development from an 8-month timeline to 2 months by identifying the existing dynamic list rules feature that could be leveraged for implementation.</li>
                     </ul>
                 </div>
                 <div class="tech-stack">C/C#, PHP, MySQL/MariaDB, JIRA, Zephyr, Git, Postman, Linux, Confluence, Kibana</div>
             </div>
 
-            <!-- QA Engineer I -->
             <div class="role">
                 <div class="role-title">Quality Assurance Engineer I</div>
                 <div class="role-dates">September 2016 – March 2019</div>
-                <p class="role-description">Built comprehensive test coverage for core POS and payment systems. Designed test cases for C to C# code conversion, conducted load testing via bash scripts simulating thousands of concurrent orders, and validated international fiscal compliance for France, Italy, and Quebec markets.</p>
+                <p class="role-description">Built comprehensive test coverage for core POS and payment systems. Retained through LLR Partners private equity acquisition, May 2016. Designed and executed test cases for C to C# code conversion, including GUI testing and visual validation. Conducted load testing using bash scripts to simulate thousands of concurrent orders across multiple hardware generations. Expanded test coverage to include specialized tax implementations, including Ohio taxing rules and edge-case tax scenarios. Validated international fiscal compliance requirements for France, Italy, and Quebec markets. Collaborated with the support team to identify production issues, provide troubleshooting guidance, and train technicians on root cause analysis techniques. Tested OS2 to OS3 system conversion for Canadian market deployments.</p>
                 <div class="accomplishments">
                     <div class="accomplishments-label">Key Accomplishments</div>
                     <ul>
-                        <li>Achieved fiscal compliance approval for international markets: Italy (2 months), France (6 months), Quebec (2 weeks), enabling international expansion.</li>
-                        <li>Verified C to C# code conversion covering 40% of the codebase, ensuring functional parity across legacy and modernized systems.</li>
+                        <li>Successfully validated and achieved fiscal compliance approval for international markets within tight timeframes: Italy (2 months), France (6 months), and Quebec (2 weeks), enabling international expansion.</li>
+                        <li>Verified C to C# code conversion covering 40% of the codebase, ensuring functional parity and stability across legacy and modernized systems.</li>
                     </ul>
                 </div>
                 <div class="tech-stack">C/C#, PHP, MySQL, XML, JSON, JIRA, Git, Postman, Linux, Confluence</div>
             </div>
 
-            <!-- Tech Support L3 -->
             <div class="role">
                 <div class="role-title">Technical Support Level 3</div>
                 <div class="role-dates">September 2014 – September 2016</div>
-                <p class="role-description">Handled complex technical troubleshooting and system recovery for POS and payment systems across international locations. Performed SQL troubleshooting, data migrations from Micros POS to Sicom systems, and diagnosed system failures including file corruption and device connectivity issues.</p>
+                <p class="role-description">Handled complex technical troubleshooting and system recovery for POS and payment systems across international restaurant locations. Served as an escalation point for critical issues requiring SQL expertise and system-level diagnosis. Performed complex SQL troubleshooting, including auto-increment error resolution, sales data validation, and database integrity checks. Diagnosed and resolved system failures, including file corruption, missing configuration files, and digital menu board malfunctions. Executed data migrations from Micros POS terminals to Sicom systems. Troubleshot payment device connectivity and processing issues for Verifone and Ingenico terminals.</p>
                 <div class="accomplishments">
                     <div class="accomplishments-label">Key Accomplishments</div>
                     <ul>
-                        <li>Established systematic issue classification (defect vs. user error vs. configuration), improving escalation accuracy and reducing unnecessary tickets.</li>
-                        <li>Trained Level 1 and Level 2 staff on advanced SQL troubleshooting and root cause analysis, reducing escalations.</li>
+                        <li>Established a systematic approach to issue classification (defect vs. user error vs. configuration), improving escalation accuracy to the QA team and reducing unnecessary tickets.</li>
+                        <li>Trained Level 1 and Level 2 support staff on advanced SQL troubleshooting and root cause analysis techniques, improving the team's technical capabilities and reducing escalations.</li>
                     </ul>
                 </div>
                 <div class="tech-stack">C, SQL/MySQL, Linux, Bash</div>
             </div>
 
-            <!-- Tech Support L2 -->
             <div class="role">
                 <div class="role-title">Technical Support Level 2</div>
                 <div class="role-dates">March 2013 – September 2014</div>
-                <p class="role-description">Expanded responsibilities to custom reporting, database migrations, and international project coordination. Deployed to Hungary for 3 months to train overnight support staff and assist with European restaurant implementations. Led Product Mix project converting individual restaurant databases to a centralized cloud-based system.</p>
+                <p class="role-description">Expanded responsibilities to include custom reporting, database migrations, and international project coordination. Supported database upgrade from version 1.8 to 2.0, validating data integrity and system functionality. Deployed to Hungary for a 3-month assignment to train overnight support staff and assist with European restaurant implementations. Led Product Mix project converting individual restaurant databases to a centralized cloud-based system, coordinating post-conversion validation with restaurant owners to ensure accuracy of pricing, taxing, products, and inventory.</p>
                 <div class="accomplishments">
                     <div class="accomplishments-label">Key Accomplishments</div>
                     <ul>
-                        <li>Proposed solution to prevent free item abuse by setting prices to $99.99 as a deterrent — adopted as core product logic and remained in place for 10+ years.</li>
-                        <li>Training efforts in Hungary enabled smooth database conversions across European locations, completing migration within 1 year.</li>
+                        <li>Proposed solution to prevent employees from giving away free items without losing historical reporting data by setting free item prices to $99.99 as a deterrent, which was adopted as core product logic and remained in place for 10+ years.</li>
+                        <li>Training efforts in Hungary enabled smooth database conversions from version 1.8 to 2.0 across European locations, completing the migration within 1 year.</li>
                     </ul>
                 </div>
                 <div class="tech-stack">C, MySQL, Linux, Bash</div>
             </div>
 
-            <!-- Tech Support L1 -->
             <div class="role">
                 <div class="role-title">Technical Support Level 1</div>
                 <div class="role-dates">July 2012 – March 2013</div>
-                <p class="role-description">Provided first-line technical assistance for restaurant POS systems. Resolved on-call issues including inventory shortages, payroll discrepancies, pay rate corrections, and daily close failures.</p>
+                <p class="role-description">Provided first-line technical assistance for restaurant POS systems. Handled inbound support calls, created tickets, and resolved common operational issues. Resolved on-call issues, including inventory shortages, payroll discrepancies, pay rate corrections, and daily close failures.</p>
                 <div class="tech-stack">MySQL, Linux</div>
             </div>
 
-        </div><!-- /company-block -->
+        </div>
 
     </section>
 
 </div>
 
-<div class="download-bar">
-    <a href="/">&larr; Back to Home</a>
+<div class="download-bar download-bar-bottom">
     <a href="/Evan_Powell_Resume.pdf" download>Download PDF</a>
 </div>
 
